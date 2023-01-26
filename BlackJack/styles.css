@@ -1,0 +1,497 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1vw;
+    user-select: none;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.card{
+    width: 5.5vw;
+    height: calc(5.5vw * 1.45);
+    background-image: url("./img/CardBack.png");
+    background-size: 100%;
+    box-shadow: 0px 0px 8px 2px rgba(34, 60, 80, 1);
+    border-radius: .2vw;
+}
+.movingCard{
+    position: absolute;
+    cursor: pointer;
+}
+.scene {
+    width: 5.5vw;
+    height: calc(5.5vw * 1.45);
+    perspective: calc(5.5vw * 3);
+    margin-left: -3.5vw;
+}
+.cardFlip{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    transform-origin: center right;
+}
+.card__face {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+.card__face--back {
+    transform: rotateY( 180deg );
+}
+.cardFlip.is-flipped {
+    transform: translateX(-100%) rotateY(-180deg);
+}
+li{
+    list-style-type: none;
+}
+input{
+    outline: none;
+    background: none;
+    border: none;
+}
+
+
+
+.tableBG{
+    background-color: #39679a;
+    border-radius: 50%;
+    position: absolute;
+    width: 250vw;
+    height: 250vw;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -5%;
+    box-shadow: inset 0 0 15vw 15vw rgba(34, 60, 80, 0.8);
+}
+.normalBG{
+    background-color: #1b1714;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+}
+.tablePrint{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("img/casino.png");
+    background-size: 8vw;
+    background-position-x: center;
+    background-position-y: 35%;
+    background-repeat: no-repeat;
+    opacity: .3;
+}
+
+
+
+.playersBlock{
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    bottom: 0;
+}
+.player{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.player:first-child, .player:last-child{
+    transform: translateY(-8vw);
+}
+.player:nth-child(2), .player:nth-child(4){
+    transform: translateY(-3vw);
+}
+.player:nth-child(3){
+    transform: translateY(-1vw);
+}
+.playerRound, .dealerRound{
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    border: .25vw solid #b1c0d6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: #2c5072;
+}
+.saddleBtn, .dealerSaddleBtn{
+    position: absolute;
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    background-image: url("img/chair.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 3vw;
+    cursor: pointer;
+    opacity: 0;
+    transition: .5s;
+}
+.dealerSaddle{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2vw;
+    display: none;
+}
+.saddleBtn:hover, .dealerSaddleBtn:hover{
+    opacity: .7;
+}
+.playerImage, .dealerImage{
+    opacity: 0;
+    width: 3.7vw;
+    height: 3.7vw;
+    border-radius: 50%;
+    background-image: url("img/no-user-image.jpg");
+    background-position: center;
+    background-size: 100%;
+    margin-top: .8vw;
+}
+.playerName{
+    opacity: 0;
+    max-width: 5vw;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    margin-top: .8vw;
+    font-size: .8vw;
+    height: 2vw;
+}
+.dealerInfo .playerImage, .dealerInfo .playerName{
+    opacity: 1;
+}
+.playerCardsOutBlock{
+    position: absolute;
+}
+.playerCards{
+    display: flex;
+    transform: translateY(calc(-100% - 1.5vw));
+    min-width: 5.5vw;
+    min-height: calc(5.5vw * 1.45);
+    border-radius: .5vw;
+}
+.playerCards > .card{
+    margin-left: -3.5vw;
+}
+.playerCards .card:first-child{
+    margin-left: 0;
+}
+.chipsCount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: .1vw;
+}
+.playerRound .chips{
+    width: 2.5vw;
+    height: 2.5vw;
+    background-size: 100%;
+    background-image: url("img/chips.png");
+    background-repeat: no-repeat;
+}
+.playerRound .center{
+    text-align: center;
+    display: none;
+}
+.playerRound .center span{
+    font-size: .8vw;
+    color: white;
+    font-weight: bold;
+}
+.cardsSum{
+    position: absolute;
+    top: -2.7vw;
+    height: 2.5vw;
+    width: 2.5vw;
+    border-radius: 50%;
+    background: #0e2033;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: .9;
+}
+.cardsSum span, .dealerSum span{
+    color: #abb8ca;
+    font-size: 1.2vw;
+}
+.dealerSum{
+    position: absolute;
+    top: 9.7vw;
+    height: 2.5vw;
+    width: 2.5vw;
+    border-radius: 50%;
+    background: #0e2033;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: .9;
+}
+
+
+
+.dealerBlock{
+    position: absolute;
+    top: .5vw;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    width: 30vw;
+    justify-content: space-between;
+}
+.dealerCards{
+    display: flex;
+    transform: translateY(3vw);
+    min-width: 5.5vw;
+    min-height: calc(5.5vw * 1.45);
+    border-radius: .5vw;
+}
+.dealerCards .card{
+    margin-left: -3.5vw;
+}
+.dealerCards .card:first-child{
+    margin-left: 0;
+}
+.deck{
+    width: 6.4vw;
+    height: calc(5.5vw * 1.45);
+    background-image: url("./img/deck.png");
+    background-size: 100%;
+    box-shadow: 0px 0px 8px 2px rgba(34, 60, 80, 1);
+    border-radius: .5vw;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.dealerBlock .playerImage{
+    margin: 0;
+}
+.dealerInfo{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 7vw;
+}
+
+
+
+
+
+.gameplayBlock{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    bottom: 0;
+    background: #160b01;
+    padding: .5vw;
+    padding-bottom: 0;
+    border-radius: 1vw 1vw 0 0;
+    border-bottom: none;
+    z-index: 1;
+    transition: .5s;
+}
+
+.gameplayBlock .container{
+    width: 52vw;
+    padding: 1vw;
+    padding-bottom: 0;
+    border-radius: 1vw 1vw 0 0;
+    border: .2vw solid #301a05;
+    border-bottom: none;
+}
+.line{
+    display: flex;
+}
+.gameplayBlock .container > .line{
+    justify-content: space-between;
+    position: relative;
+}
+.gameplayBlock .container > .line > *{
+    width: 33%;
+}
+.chip{
+    width: 2vw;
+    height: 2vw;
+    background-image: url("img/chip.png");
+    background-size: 100%;
+}
+.gameplayBlock .left{
+    display: flex;
+    align-items: center;
+}
+.gameplayBlock .left span{
+
+}
+.gameResult{
+    margin-left: .5vw;
+    padding-right: .4vw;
+}
+.autoBet{
+    text-align: center;
+    width: 2vw;
+}
+.gameplayBlock .middle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gameplayBlock .middle h3{
+    font-size: 1.1vw;
+    padding-bottom: .2vw;
+}
+.gameplayBlock .middle .line{
+    justify-content: center;
+}
+.gameplayBlock .right {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.person{
+    width: 1.5vw;
+    height: 1.5vw;
+    background-image: url("img/person.png");
+    background-size: 100%;
+    background-position-y: -0.2vw;
+    background-repeat: no-repeat;
+}
+.btnBlock{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btnBlock > *{
+    width: 45%;
+    height: 3vw;
+    border-radius: .5vw;
+    font-size: 1.2vw;
+    font-weight: bold;
+}
+.currentBetBlock{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.currentBet > img{
+    position: absolute;
+}
+.currentBet{
+    position: relative;
+    width: 60%;
+    height: 4vw;
+    border: .2vw solid #301a05;
+    background: #160b01;
+    margin: .5vw 0;
+    border-radius: .5vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.currentBet h3{
+    margin-top: .2vw;
+}
+.currentBet > span{
+    color: #8b5220;
+}
+.lWheat{
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transform: translate(-60%, 20%) rotate(-60deg);
+    width: 4vw;
+}
+.rWheat{
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transform: translate(60%, 20%) scaleX(-1) rotate(-60deg);
+    width: 4vw;
+}
+
+
+.dealerNeedle{
+    width: 5.5vw;
+    height: calc(5.5vw * 1.45);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: .2vw solid;
+    border-radius: .5vw;
+    margin-top: 3vw;
+    display: none;
+    z-index: 10;
+}
+body > div.dealerBlock > div.dealerCards > div > div > div.card.card__face.card__face--back{
+    margin-left: 0;
+}
+.loadingOverlay{
+    padding: .25vw;
+    border-radius: 50%;
+    background-image: url("img/loadingColor.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 5.5vw;
+}
+.btnBlock > input{
+    cursor: pointer;
+}
+
+.animChip{
+    position: absolute;
+    transition: .5s;
+    width: 2vw;
+    height: 2vw;
+    background-image: url("img/chip.png");
+    background-size: 100%;
+}
+
+
+
+
+
+.userInfo{
+    position: absolute;
+    right: 3vw;
+    top: 1vw;
+    display: flex;
+    align-items: center;
+}
+.userBalanceBlock{
+    display: flex;
+}
+.userLogo{
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+    background-image: url("img/no-user-image.jpg");
+    background-position: center;
+    background-size: 100%;
+}
+.userData{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: .4vw;
+}
+.playerBalance{
+    margin-left: .3vw;
+    margin-right: .3vw;
+}

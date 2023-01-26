@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="BlackJack/styles.css">
+</head>
+<body>
+
+<div class="normalBG"></div>
+<div class="tableBG"></div>
+<div class="tablePrint"></div>
+<div class="animationChips"></div>
+
+<div class="userInfo">
+    <div class="userLogo"></div>
+    <div class="userData">
+        <span class="userName">Олежа Макарошкин</span>
+        <div class="userBalanceBlock">Баланс: <span class="playerBalance">110</span> <div class="chip" style="width: 1.2vw; height: 1.2vw"></div></div>
+    </div>
+</div>
+
+
+<div class="playersBlock">
+    <div class="player">
+        <div class="playerCardsOutBlock">
+            <div class="playerCards">
+            </div>
+            <div class="cardsSum"><span>0</span></div>
+        </div>
+        <div class="loadingOverlay">
+            <div class="playerRound">
+                <div class="saddleBtn"></div>
+                <div class="center">
+                    <div class="chips"></div>
+                    <div class="chipsCount"><span>x</span><span>1</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="playerImage"></div>
+        <span class="playerName">PLAYER</span>
+    </div>
+    <div class="player">
+        <div class="playerCardsOutBlock">
+            <div class="playerCards">
+            </div>
+            <div class="cardsSum"><span>0</span></div>
+        </div>
+        <div class="loadingOverlay">
+            <div class="playerRound">
+                <div class="saddleBtn"></div>
+                <div class="center">
+                    <div class="chips"></div>
+                    <div class="chipsCount"><span>x</span><span>1</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="playerImage"></div>
+        <span class="playerName">PLAYER</span>
+    </div>
+    <div class="player">
+        <div class="playerCardsOutBlock">
+            <div class="playerCards">
+            </div>
+            <div class="cardsSum"><span>0</span></div>
+        </div>
+        <div class="loadingOverlay">
+            <div class="playerRound">
+                <div class="saddleBtn"></div>
+                <div class="center">
+                    <div class="chips"></div>
+                    <div class="chipsCount"><span>x</span><span>1</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="playerImage"></div>
+        <span class="playerName">PLAYER</span>
+    </div>
+    <div class="player">
+        <div class="playerCardsOutBlock">
+            <div class="playerCards">
+            </div>
+            <div class="cardsSum"><span>0</span></div>
+        </div>
+        <div class="loadingOverlay">
+            <div class="playerRound">
+                <div class="saddleBtn"></div>
+                <div class="center">
+                    <div class="chips"></div>
+                    <div class="chipsCount"><span>x</span><span>1</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="playerImage"></div>
+        <span class="playerName">PLAYER</span>
+    </div>
+    <div class="player">
+        <div class="playerCardsOutBlock">
+            <div class="playerCards">
+            </div>
+            <div class="cardsSum"><span>0</span></div>
+        </div>
+        <div class="loadingOverlay">
+            <div class="playerRound">
+                <div class="saddleBtn"></div>
+                <div class="center">
+                    <div class="chips"></div>
+                    <div class="chipsCount"><span>x</span><span>1</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="playerImage"></div>
+        <span class="playerName">PLAYER</span>
+    </div>
+
+</div>
+
+
+<div class="dealerBlock">
+    <div class="deck"></div>
+    <div class="dealerCards">
+
+    </div>
+    <div class="dealerSum"><span>10</span></div>
+    <div class="dealerInfo">
+        <div class="playerImage dealerImage"></div>
+        <span class="playerName">PLAYER</span>
+    </div>
+</div>
+<div class="dealerSaddle">
+    <div class="dealerRound">
+        <div class="dealerSaddleBtn"></div>
+    </div>
+</div>
+
+
+<div class="gameplayBlock">
+    <div class="container">
+        <div class="line">
+            <div class="left">
+                <span>Прошый раунд:</span><span class="gameResult">+10</span><div class="chip"></div>
+            </div>
+            <div class="middle">
+                <div>
+                    <h3>АВТОСТАВКА</h3>
+                    <div class="line">
+                        <input type="text" value="1" class="autoBet">
+                        <div class="chip"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <span class="userName">Илья Мазелкин</span>
+                <div class="person"></div>
+            </div>
+        </div>
+        <div class="line">
+            <div class="btnBlock">
+                <input type="button" class="giveUp" value="СДАТЬСЯ" style="background: #451817">
+                <input type="button" class="double" value="УДВОИТЬ" style="background: #235373">
+            </div>
+            <div class="currentBetBlock">
+                <div class="currentBet">
+                    <img src="BlackJack/img/wheat.png" alt="" class="lWheat">
+                    <img src="BlackJack/img/wheat.png" alt="" class="rWheat">
+                    <span>Текущая ставка</span>
+                    <h3><span class="currentBetData">0</span> <span class="currentBetDataCount">САБОК</span></h3>
+                </div>
+            </div>
+            <div class="btnBlock">
+                <input type="button" class="stop" value="ХВАТИТ" style="background: #813536">
+                <input type="button" class="more" value="ЕЩЕ" style="background: #007154">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="BlackJack/script.js"></script>
+</body>
+</html>
